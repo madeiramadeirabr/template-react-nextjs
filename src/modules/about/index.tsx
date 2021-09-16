@@ -10,17 +10,14 @@ import Hero from '@components/feature/Heading';
  * @returns JSX.Element
  */
 
-const About = ({ data }): JSX.Element => {
-
+const AboutModule = ({ data }): JSX.Element => {
   const hero = data.content[0];
 
   return (
-    <div>
-      <Layout>
-        <Hero title={hero?.title} subtitle={hero?.subtitle} />
-      </Layout>
-    </div>
+    <Layout>
+      <Hero title={hero?.title} subtitle={hero?.subtitle} datolink={hero?.datolink} />
+    </Layout>
   );
 };
 
-export default About;
+export default AboutModule;

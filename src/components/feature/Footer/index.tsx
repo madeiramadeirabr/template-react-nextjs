@@ -1,13 +1,7 @@
-import { styled } from "@cavilha/theme";
-
-const SFooter = styled('div', {
-    display: "block",
-    height: 100,
-    backgroundColor: "red"
-});
+import Box from "@cavilha/box";
 
 const Footer = ({...props}): JSX.Element => {
-    return <SFooter>{props.children}</SFooter>
+    return <Box css={{ ta: "right", height: 100, mt: 10}}>{props.children}</Box>
 }
 
 export default Footer;

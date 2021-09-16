@@ -346,7 +346,46 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cavilha/theme@^0.0.0-alpha.4":
+"@cavilha/box@^0.0.0-alpha.2":
+  version "0.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/@cavilha/box/-/box-0.0.0-alpha.2.tgz#6a7903e0a6560ceaa58c705587a5e63916abf898"
+  integrity sha512-VYOPTFSspk5Hz7Bb9aFEREkTwaVHX0oA1sLbQC691AvdIzsam2ylXGpo9ZkX79dEK/WBvVfoqM2l9xZVOD/JKA==
+  dependencies:
+    "@cavilha/theme" "0.0.0-alpha.4"
+    "@radix-ui/react-polymorphic" "^0.0.13"
+
+"@cavilha/flex@^0.0.0-alpha.3":
+  version "0.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@cavilha/flex/-/flex-0.0.0-alpha.3.tgz#5b5b81e1f5f08cefa2da4161feab823661f60568"
+  integrity sha512-0frpasdtY8nzL0PfNUNRGp7Ctm3k4VBq2XFPIk5MalC1uahjbtgKNTMSxqtolcT4heeoZkmPqFMaqx/iTUmHBw==
+  dependencies:
+    "@cavilha/theme" "0.0.0-alpha.3"
+    "@radix-ui/react-polymorphic" "0.0.13"
+    "@stitches/react" v0.2.2
+    react "^17.0.1"
+    react-dom "^17.0.1"
+
+"@cavilha/layout@^0.0.0-alpha.3":
+  version "0.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@cavilha/layout/-/layout-0.0.0-alpha.3.tgz#e68da6ca71a6f481e21147b3b9e902f47eb7d06e"
+  integrity sha512-Lq4IcgkIdLAGZjwxTYj7olgniDAZJ6octCUaTG+mU0dAiEfFZj96TQjXREywm6IPBXkpZFIPt2bO0M9MdKQMjQ==
+  dependencies:
+    "@cavilha/theme" "0.0.0-alpha.4"
+
+"@cavilha/text@^0.0.0-alpha.5":
+  version "0.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/@cavilha/text/-/text-0.0.0-alpha.5.tgz#fa402ce09300a7ac893e111c0a74afbb4a8c8841"
+  integrity sha512-wsaHoRg1VHn87u1KErI7aS/krIw8mMXINwHBEBX1wnKbE0bxYPGUm0RfvHuHdEMdap32Ny2kQ7SCi3fP0rARQA==
+  dependencies:
+    "@cavilha/theme" "0.0.0-alpha.4"
+    "@radix-ui/react-polymorphic" "0.0.13"
+
+"@cavilha/theme@0.0.0-alpha.3":
+  version "0.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@cavilha/theme/-/theme-0.0.0-alpha.3.tgz#d948aad4a75d61aaf9973bd0962adb3fb8510d95"
+  integrity sha512-8ODnXEtubHMMLwzGrH1vI/wPWUZg8leW258IvH9x32eIQat8q42DEasbG9TmNjQxQxzArn8hsvl9bYgjmluojw==
+
+"@cavilha/theme@0.0.0-alpha.4", "@cavilha/theme@^0.0.0-alpha.4":
   version "0.0.0-alpha.4"
   resolved "https://registry.yarnpkg.com/@cavilha/theme/-/theme-0.0.0-alpha.4.tgz#77ffae4ff15c60be309b9074853a201357eaeb67"
   integrity sha512-ieNZQyVKwNgMHcRa08tZPqKupKwl0hD0ZPpsBEHKmr8jGKgWotpAVimL4ESlo2pCpR3scBDBeMnvmFxfknoOCg==
@@ -815,6 +854,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@radix-ui/react-polymorphic@0.0.13", "@radix-ui/react-polymorphic@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-polymorphic/-/react-polymorphic-0.0.13.tgz#d010d48281626191c9513f11db5d82b37662418a"
+  integrity sha512-0sGqBp+v9/yrsMhPfAejxcem2MwAFgaSAxF3Sieaklm6ZVYM/hTZxxWI5NVOLGV+482GwW0wIqwpVUzREjmh+w==
+
 "@rushstack/eslint-patch@^1.0.6":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.0.6.tgz#023d72a5c4531b4ce204528971700a78a85a0c50"
@@ -834,7 +878,7 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@stitches/react@0.2.2":
+"@stitches/react@0.2.2", "@stitches/react@v0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@stitches/react/-/react-0.2.2.tgz#8a2f8256835510c265ab20820f54a5bb0376bac6"
   integrity sha512-/qRSX+ANPJg/0eLNr5bEywjkdvIfLbsaG2d8p83wPlI0MA7Yi9FzaRLk2H6DMAdJHuyu6ThY4HfHQIL35buY9g==
@@ -5102,7 +5146,7 @@ raw-body@2.4.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dom@17.0.2:
+react-dom@17.0.2, react-dom@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -5126,7 +5170,7 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react@17.0.2:
+react@17.0.2, react@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==

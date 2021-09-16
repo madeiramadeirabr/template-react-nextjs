@@ -8,7 +8,8 @@ const aboutPageDataQuery = /* GraphQL */ `
           url
         },
         title,
-        subtitle
+        subtitle,
+        datolink
       }
     }
   }

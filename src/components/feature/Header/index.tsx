@@ -1,14 +1,7 @@
-import { styled } from "@cavilha/theme";
-
-const HeaderContainer = styled('div', {
-    display: 'block',
-    width: '100%',
-    background: '$neutral3'
-  });
-
+import Box from "@cavilha/box";
 
 const Header = ({...props}): JSX.Element => {
-    return <HeaderContainer>{props.children}</HeaderContainer>
+    return <Box css={{ mt: 25, mb: 50 }}>{props.children}</Box>
 }
 
 export default Header;
