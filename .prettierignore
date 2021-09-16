@@ -1,4 +1,10 @@
 node_modules
+.next
+.layer0
 yarn.lock
 package-lock.json
 public
+.github
+_content_cache
+docs
+coverage
