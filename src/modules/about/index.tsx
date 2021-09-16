@@ -1,5 +1,5 @@
-import Layout from "@components/feature/Layout";
-
+import Layout from '@components/feature/Layout';
+import Hero from '@components/feature/Heading/Hero';
 /**
  * About Module
  *
@@ -12,7 +12,10 @@ import Layout from "@components/feature/Layout";
 const About = ({ template }): JSX.Element => {
   return (
     <div>
-      <Layout>Hey Im about page; I'm using ``${template}`` template page.</Layout>
+      <Layout>
+        <Hero title="Hero test" subtitle="Hero subtitle" />
+        Hey Im about page; I'm using ``${template}`` template page.
+      </Layout>
     </div>
   );
 };
