@@ -92,7 +92,7 @@
     "testEnvironment": "node"
   },
   "lint-staged": {
-    "*.@(ts|tsx)": [
+    "*.@(ts|tsx|js|jsx)": [
       "yarn eslint",
       "yarn format"
     ],
