@@ -19,7 +19,7 @@ const AboutModule = ({ data }: OwnProps): JSX.Element => {
 
   return (
     <Layout>
-      <Hero title={hero?.title} subtitle={hero?.subtitle}  />
+      <Hero title={hero?.title} subtitle={hero?.subtitle} />
     </Layout>
   );
 };
