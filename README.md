@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este repositório contempla uma aplicação [Next.js](https://nextjs.org/) pre-configurada com as seguintes dependências:
 
-## Getting Started
+- Next.js framework
+- Typescript
+- React
+- [Cavilha UI](https://cavilha-ui-pre.madeiramadeira.com.br/?path=/story/introdu%C3%A7%C3%A3o-sobre-o-cavilha-ui--page)
+- Jest
+- Testing Library
+- Commitlint & Commitzen
+- Babel
+- Prettier
+- ESlint
 
-First, run the development server:
+## Iniciando
+
+Certifique-se de possuir a versão correta do node instalada (v14) e então rode:
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn && yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Para visualizar a aplicação, abra [http://localhost:3000](http://localhost:3000) no seu browser.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+    "dev": Inicia o next na porta 3000
+    "next:build": Gera o build de uma versão de produção
+    "next:start": Inicia uma versão gerada
+    "next:lint": Checagem de tipos
+    "type:check": Checagem de tipos
+    "type:watch": Checagem de tipos (modo watch)
+    "format": Formatação dos arquivos
+    "format:check": Checagem da formatação dos arquivos
+    "lint": Lint dos arquivos
+    "lint:fix": Lint dos arquivos e autofix
+    "commit": Comitar mudanças
+    "test": Roda todos os testes
+    "test:watch": Roda todos os testes (modo watch)
+    "test:unit": Roda todos os testes unitarios
+    "test:unit:watch": Roda todos os testes unitarios (modo watch)
+    "test:integration": Roda todos os testes de integração
+    "test:integration:watch": Roda todos os testes de integração (modo watch)
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Sobre o Nextjs
 
-To learn more about Next.js, take a look at the following resources:
+Para saber mais sobre Next.js:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - Next.js features e API.
+- [Learn Next.js](https://nextjs.org/learn) - Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Acompanhe o [repositório do Next.js no GitHub](https://github.com/vercel/next.js/)
 
-## Deploy on Vercel
+## Deploy na layer0.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Wip..

@@ -1,5 +1,5 @@
-import Footer from './index';
 import { render } from '@testing-library/react';
+import Footer from './index';
 
 describe('Footer component: ', () => {
   it('expect Flex children to display correctly', () => {

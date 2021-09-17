@@ -1,7 +1,10 @@
 import Box from "@cavilha/box";
 
-const Header = ({...props}): JSX.Element => {
-    return <Box css={{ mt: 25, mb: 50 }}>{props.children}</Box>
+type HeaderProps = {
+    children?: React.ReactNode;
 }
+
+
+const Header = ({children}: HeaderProps): JSX.Element => <Box css={{ mt: 25, mb: 50 }}>{children}</Box>
 
 export default Header;

@@ -1,6 +1,6 @@
 import DatoCMSFetch from '@utils/datocms';
 
-const aboutPageDataQuery = /* GraphQL */ `
+const homePageDataQuery = /* GraphQL */ `
   query MyQuery {
     about {
       content {
@@ -15,20 +15,20 @@ const aboutPageDataQuery = /* GraphQL */ `
   }
 `;
 
-export type getAboutPageDataResult = {
+export type getHomePageDataResult = {
   data: Record<string, any>;
 };
 
-async function getAboutPageData({
+async function getHomePageData({
   preview,
 }: {
   preview?: boolean;
-} = {}): Promise<getAboutPageDataResult> {
-  const data = await DatoCMSFetch(aboutPageDataQuery, {
+} = {}): Promise<getHomePageDataResult> {
+  const data = await DatoCMSFetch(homePageDataQuery, {
     preview,
   });
 
   return { data };
 }
 
-export default getAboutPageData;
+export default getHomePageData;
