@@ -16,9 +16,7 @@
     "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:sonarjs/recommended",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react"
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "sonarjs", "simple-import-sort"],

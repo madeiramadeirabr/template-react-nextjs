@@ -1,5 +1,5 @@
 export const passwordRegex = new RegExp(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
   );
   
   export const hasUpperCaseRegex = new RegExp('[A-Z]');
@@ -7,4 +7,4 @@ export const passwordRegex = new RegExp(
   export const hasNumbersRegex = new RegExp('[0-9]');
   export const hasNonalphasRegex = new RegExp(/\W/);
   
-  
+  export default passwordRegex;

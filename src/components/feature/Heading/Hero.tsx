@@ -5,12 +5,10 @@ type HeroProps = {
   title: string;
   subtitle: string;
   backgroundImage?: string;
-  datolink?: string;
   children?: React.ReactNode;
 };
 
-const Hero = ({ title, backgroundImage, subtitle, datolink, children }: HeroProps): JSX.Element => {
-  return (
+const Hero = ({ title, backgroundImage, subtitle, children }: HeroProps): JSX.Element => (
     <Box css={{ backgroundImage: `url(${backgroundImage})`, height: 250 }}>
       <Text as="h1" textStyle="hero" css={{ mb: 15 }}>
         {title}
@@ -21,6 +19,5 @@ const Hero = ({ title, backgroundImage, subtitle, datolink, children }: HeroProp
       {children && <Box>{children}</Box>}
     </Box>
   );
-};
 
 export default Hero;

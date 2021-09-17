@@ -50,9 +50,10 @@ const globalStyles = globalCavilhaCss({
   },
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   globalStyles();
 
   return <Component {...pageProps} />
 }
+
 export default MyApp

@@ -10,12 +10,16 @@ import Hero from '@components/feature/Heading';
  * @returns JSX.Element
  */
 
-const AboutModule = ({ data }): JSX.Element => {
+type OwnProps = {
+  data?: any;
+};
+
+const AboutModule = ({ data }: OwnProps): JSX.Element => {
   const hero = data.content[0];
 
   return (
     <Layout>
-      <Hero title={hero?.title} subtitle={hero?.subtitle} datolink={hero?.datolink} />
+      <Hero title={hero?.title} subtitle={hero?.subtitle}  />
     </Layout>
   );
 };
