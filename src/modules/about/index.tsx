@@ -1,5 +1,6 @@
 import Layout from '@components/feature/Layout';
-import Hero from '@components/feature/Heading/Hero';
+import Hero from '@components/feature/Heading';
+
 /**
  * About Module
  *
@@ -9,15 +10,14 @@ import Hero from '@components/feature/Heading/Hero';
  * @returns JSX.Element
  */
 
-const About = ({ template }): JSX.Element => {
+const AboutModule = ({ data }): JSX.Element => {
+  const hero = data.content[0];
+
   return (
-    <div>
-      <Layout>
-        <Hero title="Hero test" subtitle="Hero subtitle" />
-        Hey Im about page; I'm using ``${template}`` template page.
-      </Layout>
-    </div>
+    <Layout>
+      <Hero title={hero?.title} subtitle={hero?.subtitle} datolink={hero?.datolink} />
+    </Layout>
   );
 };
 
-export default About;
+export default AboutModule;

@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = {
-  optimizeFonts: true,
+  optimizeFonts: false,
   reactStrictMode: true,
   poweredByHeader: false,
   async headers() {

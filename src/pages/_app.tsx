@@ -34,9 +34,19 @@ const globalStyles = globalCavilhaCss({
     },
   ],
   ...reset,
+  html: {
+    height: "100%",
+    width: "100%"
+  },
   body: {
     fontFamily: fonts.untitled,
-    background: colors.canvas
+    background: colors.canvas,
+    height: "inherit",
+    width: "inherit",
+    '& > #__next, & > #__next > div': {
+      height: "inherit",
+      width: "inherit",
+    }
   },
 });
 
