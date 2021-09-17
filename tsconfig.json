@@ -33,5 +33,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["src/node_modules"]
+  "exclude": [".github",".layer0", ".next", "node_modules", "public"]
 }
