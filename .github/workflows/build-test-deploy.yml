@@ -122,7 +122,6 @@ jobs:
       - name: Deploy to Layer0
         id: deploy
         run: |
-          yarn cms-cache
           yarn layer0:deploy --branch=$BRANCH_NAME --token=$layer0_deploy_token --environment=$ENVIRONMENT_NAME
         env:
           layer0_deploy_token: ${{ secrets.layer0_deploy_token }}
