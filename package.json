@@ -9,7 +9,13 @@
     "next:lint": "next lint",
     "lint": "eslint 'packages/**/src/*.{ts,tsx}'",
     "prepare": "is-ci || husky install",
-    "commit": "lint-staged && cz --no-verify"
+    "commit": "lint-staged && cz --no-verify",
+    "test": "jest --verbose --env=jsdom",
+    "test:watch": "jest --watch --verbose --env=jsdom",
+    "test:unit": "jest --verbose --env=jsdom --config=jest-unit.config.js",
+    "test:unit:watch": "jest --verbose --env=jsdom --config=jest-unit.config.js --watchAll",
+    "test:integration": "jest --verbose --env=jsdom --config=jest-integration.config.js",
+    "test:integration:watch": "jest --verbose --env=jsdom --config=jest-integration.config.js --watchAll"
   },
   "dependencies": {
     "@cavilha/box": "^0.0.0-alpha.2",
@@ -36,6 +42,9 @@
     "@types/jest": "^27.0.1",
     "@types/react": "17.0.21",
     "@types/react-dom": "^17.0.9",
+    "babel-jest": "^26.6.3",
+    "jest-watch-typeahead": "^0.5.0",
+    "@types/graphql": "^14.5.0",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
@@ -55,6 +64,9 @@
     "jest": "^27.0.6",
     "prettier": "^2.4.0",
     "typescript": "4.4.3"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "lint-staged": {
     "src/*": [

@@ -4,12 +4,9 @@ const DatoCMSFetch = async (
   query: string,
   { preview = false, variables = {} } = {}
 ): Promise<any> => {
+  const endpoint = preview ? `${process.env.DATO_CMS_URL}/preview` : process.env.DATO_CMS_URL;
 
-  const fetchEndpoint = preview
-    ? `${process.env.DATO_CMS_URL}/preview`
-    : process.env.DATO_CMS_URL;
-
-  const graphQLClient = new GraphQLClient(fetchEndpoint, {
+  const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
@@ -19,11 +16,7 @@ const DatoCMSFetch = async (
 
   try {
     return await graphQLClient.request(query, variables);
-
   } catch (error) {
-      
-    console.error(JSON.stringify(error, undefined, 2));
-
     throw new Error('Failed to fetch graphQL API');
   }
 };

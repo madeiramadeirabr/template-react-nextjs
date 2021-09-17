@@ -3,19 +3,19 @@ import DatoCMSFetch from '@utils/datocms';
 const aboutPageDataQuery = /* GraphQL */ `
   query MyQuery {
     about {
-      content { 
+      content {
         backgroundImage {
           url
-        },
-        title,
-        subtitle,
+        }
+        title
+        subtitle
         datolink
       }
     }
   }
 `;
 
-type getAboutPageDataResult = {
+export type getAboutPageDataResult = {
   data: Record<string, any>;
 };
 
@@ -24,12 +24,11 @@ async function getAboutPageData({
 }: {
   preview?: boolean;
 } = {}): Promise<getAboutPageDataResult> {
-  
   const data = await DatoCMSFetch(aboutPageDataQuery, {
     preview,
   });
 
-  return {data};
+  return { data };
 }
 
 export default getAboutPageData;
