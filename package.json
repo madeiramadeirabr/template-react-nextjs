@@ -3,13 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "next:build": "next build",
     "next:start": "next start",
     "next:lint": "next lint",
-    "lint": "eslint 'packages/**/src/*.{ts,tsx}'",
+    "type:check": "tsc --pretty --noEmit",
+    "type:watch": "tsc --pretty -w",
+    "format": "prettier --write **/*.{ts,tsx}",
+    "format:check": "prettier --check .",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "yarn lint --fix",
     "prepare": "is-ci || husky install",
-    "commit": "lint-staged && cz --no-verify"
+    "commit": "lint-staged && cz --no-verify",
+    "clean": "npx del-cli .next .layer0",
+    "analyze": "yarn clean && cross-env ANALYZE=true yarn build"
   },
   "dependencies": {
     "@cavilha/theme": "^0.0.0-alpha.4",
