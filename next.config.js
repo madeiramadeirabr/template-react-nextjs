@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
 
+const path = require('path');
+const envs = require('./src/constants/envs');
 const withPlugins = require('next-compose-plugins');
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
+
+const reactSvg = require('next-react-svg');
 
 const nextConfig = {
   optimizeFonts: false,
@@ -30,7 +34,7 @@ const nextConfig = {
       fallback: [
       ],
     };
-    if (NEXT_PUBLIC_APP_STAGE === envs.DEVELOPMENT) {
+    if (process.env.NEXT_PUBLIC_APP_STAGE === envs.DEVELOPMENT) {
       // eslint-disable-next-line no-console
       console.info('Using  rewrites:', rewrites);
     }
