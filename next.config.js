@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const { withLayer0, withServiceWorker } = require('@layer0/next/config');
 const path = require('path');
-const envs = require('./src/constants/envs');
 const withPlugins = require('next-compose-plugins');
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -9,6 +8,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const reactSvg = require('next-react-svg');
+const envs = require('./src/constants/envs');
 
 const nextConfig = {
   optimizeFonts: false,
@@ -18,7 +18,6 @@ const nextConfig = {
     return [];
   },
   async rewrites() {
-
     const rewrites = {
       beforeFiles: [
         // These rewrites are checked after headers/redirects
@@ -31,8 +30,7 @@ const nextConfig = {
       ],
       // After checking all Next.js pages (including dynamic routes)
       // and static files we proxy any other requests
-      fallback: [
-      ],
+      fallback: [],
     };
     if (process.env.NEXT_PUBLIC_APP_STAGE === envs.DEVELOPMENT) {
       // eslint-disable-next-line no-console

@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "jsx": "preserve",
     "allowUnreachableCode": true,
-    "noFallthroughCasesInSwitch": true, 
+    "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "preserveConstEnums": true,
@@ -33,6 +33,6 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "./jest.setup.ts"],
-  "exclude": [".github",".layer0", ".next", "node_modules", "public"],
+  "exclude": [".github", ".layer0", ".next", "node_modules", "public"],
   "types": ["node", "jest", "@types/testing-library__jest-dom"]
 }
