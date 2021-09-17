@@ -58,8 +58,12 @@
     "typescript": "4.4.3"
   },
   "lint-staged": {
-    "src/*": [
-      "yarn lint"
+    "*.@(ts|tsx)": [
+      "yarn eslint",
+      "yarn format"
+    ],
+    "*.@(json)": [
+      "yarn format"
     ]
   },
   "config": {
