@@ -4,6 +4,6 @@ import type { User } from '@type/user';
 
 export default function handler(_req: NextApiRequest, res: NextApiResponse<User>) {
   res.status(200).json({
-    firstName: 'John'
+    firstName: 'John',
   });
 }

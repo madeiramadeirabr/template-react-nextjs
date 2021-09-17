@@ -14,5 +14,4 @@ describe('Footer component: ', () => {
 
     expect(child).toBeInTheDocument();
   });
-
 });

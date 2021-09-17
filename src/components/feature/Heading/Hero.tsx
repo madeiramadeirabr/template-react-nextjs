@@ -9,15 +9,15 @@ type HeroProps = {
 };
 
 const Hero = ({ title, backgroundImage, subtitle, children }: HeroProps): JSX.Element => (
-    <Box css={{ backgroundImage: `url(${backgroundImage})`, height: 250 }}>
-      <Text as="h1" textStyle="hero" css={{ mb: 15 }}>
-        {title}
-      </Text>
+  <Box css={{ backgroundImage: `url(${backgroundImage})`, height: 250 }}>
+    <Text as="h1" textStyle="hero" css={{ mb: 15 }}>
+      {title}
+    </Text>
 
-      <Text as="h2">{subtitle}</Text> 
+    <Text as="h2">{subtitle}</Text>
 
-      {children && <Box>{children}</Box>}
-    </Box>
-  );
+    {children && <Box>{children}</Box>}
+  </Box>
+);
 
 export default Hero;
