@@ -1,0 +1,171 @@
+name: Build, test, and deploy
+
+on: [push]
+
+jobs:
+  
+  installDependencies:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          check-latest: true
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: |
+          echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install dependencies
+        run: yarn install --prefer-offline --frozen-lockfile
+      
+      - uses: actions/cache@v2
+        id: cache-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+
+  formatCheck:
+    name: Check formatting
+    runs-on: ubuntu-latest
+    needs: installDependencies
+    steps:
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+      - run: yarn format:check
+  
+  lintCheck:
+    name: Check lint
+    runs-on: ubuntu-latest
+    needs: installDependencies
+    steps:
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+      - run: yarn lint
+
+  typeCheck:
+    name: Check type
+    runs-on: ubuntu-latest
+    needs: installDependencies
+    steps:
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+      - run: yarn type:check
+
+  testUnit:
+    name: Test unit
+    runs-on: ubuntu-latest
+    needs: installDependencies
+    steps:
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+      - run: yarn test
+
+  deployApplication:
+    name: Deploy to Layer0
+    runs-on: ubuntu-latest
+    needs: [formatCheck, lintCheck, typeCheck, testUnit]
+    steps:
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ./*
+          key: ${{ github.sha }}
+
+      - name: Check if layer0 TOKEN exists
+        if: env.layer0_deploy_token == ''
+        run: |
+          echo You must define the "layer0_deploy_token" secret in GitHub project settings
+          exit 1
+        env:
+          layer0_deploy_token: ${{ secrets.layer0_deploy_token }}
+
+      - name: Set BRANCH_NAME and ENVIRONMENT_NAME variables
+        shell: bash
+        run: |
+          bash ./.github/set-vars.sh
+      
+      - name: Start deployment
+        uses: bobheadxi/deployments@v0.5.2
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: ${{ env.ENVIRONMENT_NAME }}
+
+      - name: Deploy to Layer0
+        id: deploy
+        run: |
+          yarn cms-cache
+          yarn layer0:deploy --branch=$BRANCH_NAME --token=$layer0_deploy_token --environment=$ENVIRONMENT_NAME
+        env:
+          layer0_deploy_token: ${{ secrets.layer0_deploy_token }}
+      
+      - name: Get deployment URLs
+        id: deploy_manifest
+        run: |
+          content=$(cat .layer0/deployment-manifest.json | tr -d '\n')
+          echo "::set-output name=json::$content"
+      
+      - name: Check if deployment report file exists
+        if: steps.deploy_manifest.outputs.json == ''
+        run: |
+          echo File .layer0/deployment-manifest.json is empty or not exists
+          exit 1
+
+      - name: Update deployment status
+        uses: bobheadxi/deployments@v0.5.2
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          env_url: ${{ env.DEPLOYMENT_EDGE }}
+        env:
+          DEPLOYMENT_EDGE: ${{fromJson(steps.deploy_manifest.outputs.json).environment.url}}
+
+      - name: Find pull-request ID
+        uses: jwalton/gh-find-current-pr@v1.0.3
+        id: finder
+        
+      - name: Sticky Pull Request Comment
+        uses: marocchino/sticky-pull-request-comment@v2.1.0
+        with:
+          number: ${{ steps.finder.outputs.pr }}
+          recreate: true
+          message: |
+            :white_check_mark: Permalink: <${{ env.DEPLOYMENT_PERMALINK }}>
+            :heavy_check_mark: Edge: <${{env.DEPLOYMENT_EDGE}}>
+        env:
+          DEPLOYMENT_NUMBER: ${{fromJson(steps.deploy_manifest.outputs.json).number}}
+          DEPLOYMENT_PERMALINK: ${{fromJson(steps.deploy_manifest.outputs.json).url}}
+          DEPLOYMENT_EDGE: ${{fromJson(steps.deploy_manifest.outputs.json).environment.url}}
+          DEPLOYMENT_ENVIRONMENT: ${{fromJson(steps.deploy_manifest.outputs.json).environment.name}}
+    

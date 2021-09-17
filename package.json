@@ -1,12 +1,14 @@
 {
-  "name": "nextjs-boilerplate",
-  "version": "0.1.0",
-  "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "next:build": "next build",
     "next:start": "next start",
     "next:lint": "next lint",
+    "layer0": "cross-env LAYER0=true layer0",
+    "layer0:dev": "cross-env LAYER0=true NODE_ENV=development layer0 dev",
+    "layer0:build": "cross-env LAYER0=true layer0 build",
+    "layer0:deploy": "cross-env LAYER0=true layer0 deploy --wait-layer0=false",
+    "layer0:env-pull": "layer0 env pull --team=madeiramadeira",
     "type:check": "tsc --pretty --noEmit",
     "type:watch": "tsc --pretty -w",
     "format": "prettier --write **/*.{js,ts,tsx}",
@@ -24,6 +26,9 @@
     "test:integration": "jest --verbose --env=jsdom --config=jest-integration.config.js",
     "test:integration:watch": "jest --verbose --env=jsdom --config=jest-integration.config.js --watchAll"
   },
+  "name": "nextjs-boilerplate",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@cavilha/box": "^0.0.0-alpha.2",
     "@cavilha/flex": "^0.0.0-alpha.3",
@@ -43,6 +48,12 @@
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
+    "@layer0/cli": "^3.16.10",
+    "@layer0/core": "^3.16.10",
+    "@layer0/devtools": "^3.16.10",
+    "@layer0/next": "^3.16.10",
+    "@layer0/prefetch": "^3.16.10",
+    "@layer0/react": "^3.16.10",
     "@next/bundle-analyzer": "^11.1.2",
     "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -55,6 +66,7 @@
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "babel-jest": "^26.6.3",
     "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "7.32.0",
     "eslint-config-airbnb": "^18.2.1",

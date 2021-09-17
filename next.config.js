@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-
+const { withLayer0, withServiceWorker } = require('@layer0/next/config');
 const path = require('path');
 const envs = require('./src/constants/envs');
 const withPlugins = require('next-compose-plugins');
@@ -42,8 +42,15 @@ const nextConfig = {
   },
 };
 
+const plugins = [];
+
+if (process.env.LAYER0 === 'true') {
+  plugins.push([withLayer0, { layer0SourceMaps: true }], [withServiceWorker]);
+}
+
 module.exports = withPlugins(
   [
+    ...plugins,
     [withBundleAnalyzer],
     [
       reactSvg,
