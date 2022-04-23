@@ -16,5 +16,3 @@ spec:
   type: template
   lifecycle: experimental
   owner: team-platform-services
-  dependsOn:
-    - component:madeiramadeirabr/cavilha-ui
