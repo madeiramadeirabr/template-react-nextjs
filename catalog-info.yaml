@@ -4,7 +4,15 @@ metadata:
   name: template-react-nextjs
   annotations:
     github.com/project-slug: madeiramadeirabr/template-react-nextjs
+ tags:
+    - react
+    - nextjs
+    - typescript
+    - webapp
+    - css-in-js
 spec:
-  type: other
-  lifecycle: unknown
+  type: template
+  lifecycle: experimental
   owner: team-platform-services
+  dependsOn:
+    - component:default/cavilha-ui
