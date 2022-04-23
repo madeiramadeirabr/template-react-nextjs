@@ -2,8 +2,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: template-react-nextjs
+  description: Template para aplicação Next.js integrada ao DatoCMS.
   annotations:
     github.com/project-slug: madeiramadeirabr/template-react-nextjs
+    backstage.io/techdocs-ref: dir:.
   tags:
     - react
     - nextjs
@@ -15,4 +17,4 @@ spec:
   lifecycle: experimental
   owner: team-platform-services
   dependsOn:
-    - component:default/cavilha-ui
+    - component:madeiramadeirabr/cavilha-ui
