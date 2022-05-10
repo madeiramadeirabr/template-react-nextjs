@@ -1,43 +1,58 @@
 <!---
-Thanks for creating an Pull Request 💖!
+Obrigado(a) por abrir Pull Request 💖!
 
-Please read the following before submitting:
-- PRs that adds new external dependencies might take a while to review.
-- Keep your PR as small as possible.
-- Limit your PR to one type (docs, feat, refact, ci, or bugfix)
+Por favor, leia os seguintes pontos antes de requisitar seu Pull Request:
+- Mantenha seu PR o mais simples possível;
+- Limite seu PR a apenas um tópico (docs, feat, refact, ci, or bugfix);
+- Remove this comment. - Remova esse comentário.
 -->
+## Tipo de Mudança
+- [x] Bugfix (correções de código que **NÃO MUDAM** regras de negócio).
+- [ ] Nova Feature (adições ao código que **NÃO MUDAM** regras de negócio).
+- [ ] Melhoria de código (mudanças de código que **NÃO MUDAM** regras de negócio).
+- [ ] Correções ou novas features que **MUDAM** regras de negócio.
 
-Closes # <!-- Github issue # here -->
+## Mudança Proposta/Descrição
+Descreva suas mudanças de maneira breve e objetiva.
+<< Insira aqui seu Pull Request. >>
 
-[LINK_TO_JIRA_ISSUE](https://www.google.com)
+###  Comportamento atual
 
-### 📝 Description
+> Por favor descreva o comportamento atual que você está modificando.
 
-> Add a brief description
+<< Atualmente o componente faz... >>
 
-### ⛳️ Current behavior
+### Novo comportamento
 
-> Please describe the current behavior that you are modifying
+> Por favor descreva o comportamento ou mudança que esse PR acrescenta:
 >
-> - Currently the component does...
+- Mudança um aqui...
+- Mudança dois aqui...
+- Mudança três aqui...
 
-### 🚀 New behavior
 
-> Please describe the behavior or changes this PR adds
->
-> - Change one here..
-> - Change two here..
-> - Change three here..
+### Esta é uma Breaking Change? (Sim/Não):
 
-### 💣 Is this a breaking change (Yes/No):
+> Se sim, por favor descreva o impacto e as etapas de migração para usuarios existentes.
 
-> If Yes, please describe the impact and migration steps for existing users.
+### Informação Adicional
+<< Insira aqui qualquer informação adicional se houver. >>
 
-### 📝 Additional Information
+## Task
 
-### Checklist
+Esse Pull Request está associado com a seguinte task do Jira:
+[LINK_PARA_JIRA_ISSUE](https://madeiramadeira.atlassian.net/browse/ABC-123)
 
-- [ ] Have you written tests for your changes?
-- [ ] Have you successfully ran tests with your changes locally?
-- [ ] Have you lint your code locally prior to submission?
-- [ ] Have you updated the componente documentation with the changes?
+## Mudanças Propostas
+  Descreva suas mudanças de maneira breve e objetiva:
+* Foo
+* Bar
+* Baz
+
+
+
+## Checklist
+- [ ] Você escreveu testes para suas mudanças?
+- [ ] Você executou testes bem sucedidos com suas alterações localmente?
+- [ ] Você rodou o lint em seu código localmente antes do envio?
+- [ ] Você atualizou a documentação do componente com as alterações?
